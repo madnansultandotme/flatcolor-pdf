@@ -1,7 +1,7 @@
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-export type LayoutType = "single" | "grid-2x2" | "grid-3x3";
+export type LayoutType = "single" | "grid-1x2" | "grid-2x1" | "grid-2x2" | "grid-3x3";
 
 interface LayoutSelectorProps {
   value: LayoutType;
@@ -16,6 +16,28 @@ const layouts = [
     icon: (
       <div className="w-full h-full p-1">
         <div className="w-full h-full border border-current rounded" />
+      </div>
+    ),
+  },
+  {
+    id: "grid-1x2" as LayoutType,
+    name: "1×2 Grid",
+    description: "Two images per page",
+    icon: (
+      <div className="w-full h-full p-1 grid grid-cols-1 gap-0.5">
+        <div className="border border-current rounded-sm" />
+        <div className="border border-current rounded-sm" />
+      </div>
+    ),
+  },
+  {
+    id: "grid-2x1" as LayoutType,
+    name: "2×1 Grid",
+    description: "Two images per page",
+    icon: (
+      <div className="w-full h-full p-1 grid grid-cols-2 gap-0.5">
+        <div className="border border-current rounded-sm" />
+        <div className="border border-current rounded-sm" />
       </div>
     ),
   },
@@ -53,7 +75,7 @@ const LayoutSelector = ({ value, onChange }: LayoutSelectorProps) => {
       <RadioGroup
         value={value}
         onValueChange={(v) => onChange(v as LayoutType)}
-        className="grid grid-cols-3 gap-3"
+        className="grid grid-cols-5 gap-2"
       >
         {layouts.map((layout) => (
           <Label

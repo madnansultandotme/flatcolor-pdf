@@ -29,6 +29,10 @@ const PDFPreview = ({
     switch (layout) {
       case "single":
         return { cols: 1, rows: 1, perPage: 1 };
+      case "grid-1x2":
+        return { cols: 1, rows: 2, perPage: 2 };
+      case "grid-2x1":
+        return { cols: 2, rows: 1, perPage: 2 };
       case "grid-2x2":
         return { cols: 2, rows: 2, perPage: 4 };
       case "grid-3x3":
