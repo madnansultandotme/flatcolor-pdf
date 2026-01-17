@@ -53,14 +53,14 @@ const ImagePreview = ({ images, onRemove, onReorder }: ImagePreviewProps) => {
   if (images.length === 0) return null;
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2 sm:space-y-3">
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium text-foreground">
+        <h3 className="text-xs sm:text-sm font-medium text-foreground">
           Uploaded Images ({images.length})
         </h3>
-        <span className="text-xs text-muted-foreground">Drag to reorder</span>
+        <span className="text-xs text-muted-foreground hidden sm:inline">Drag to reorder</span>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
         {images.map((image, index) => (
           <div
             key={image.id}
@@ -83,24 +83,24 @@ const ImagePreview = ({ images, onRemove, onReorder }: ImagePreviewProps) => {
               className="w-full h-full object-cover pointer-events-none"
             />
             <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors" />
-            <div className="absolute top-2 left-2 bg-secondary text-secondary-foreground text-xs font-mono px-2 py-1 rounded">
+            <div className="absolute top-1 left-1 sm:top-2 sm:left-2 bg-secondary text-secondary-foreground text-xs font-mono px-1.5 py-0.5 sm:px-2 sm:py-1 rounded">
               {index + 1}
             </div>
             <Button
               variant="destructive"
               size="icon"
-              className="absolute top-2 right-2 w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute top-1 right-1 sm:top-2 sm:right-2 w-5 h-5 sm:w-6 sm:h-6 opacity-0 group-hover:opacity-100 transition-opacity"
               onClick={() => onRemove(image.id)}
             >
-              <X className="w-3 h-3" />
+              <X className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
             </Button>
-            <div className="absolute bottom-0 left-0 right-0 bg-card/90 backdrop-blur-sm px-2 py-1.5">
+            <div className="absolute bottom-0 left-0 right-0 bg-card/90 backdrop-blur-sm px-1.5 py-1 sm:px-2 sm:py-1.5">
               <p className="text-xs text-foreground truncate font-medium">
                 {image.file.name}
               </p>
             </div>
-            <div className="absolute left-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-75 transition-opacity pointer-events-none">
-              <GripVertical className="w-4 h-4 text-foreground" />
+            <div className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-75 transition-opacity pointer-events-none">
+              <GripVertical className="w-3 h-3 sm:w-4 sm:h-4 text-foreground" />
             </div>
           </div>
         ))}

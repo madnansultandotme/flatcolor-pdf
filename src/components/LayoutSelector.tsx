@@ -70,19 +70,19 @@ const layouts = [
 
 const LayoutSelector = ({ value, onChange }: LayoutSelectorProps) => {
   return (
-    <div className="space-y-3">
-      <Label className="text-sm font-medium text-foreground">Page Layout</Label>
+    <div className="space-y-2 sm:space-y-3">
+      <Label className="text-xs sm:text-sm font-medium text-foreground">Page Layout</Label>
       <RadioGroup
         value={value}
         onValueChange={(v) => onChange(v as LayoutType)}
-        className="grid grid-cols-5 gap-2"
+        className="grid grid-cols-3 sm:grid-cols-5 gap-1.5 sm:gap-2"
       >
         {layouts.map((layout) => (
           <Label
             key={layout.id}
             htmlFor={layout.id}
             className={`
-              relative flex flex-col items-center gap-2 p-3 rounded-lg border-2 cursor-pointer
+              relative flex flex-col items-center gap-1 sm:gap-2 p-2 sm:p-3 rounded-lg border-2 cursor-pointer
               transition-all duration-200
               ${
                 value === layout.id
@@ -93,15 +93,15 @@ const LayoutSelector = ({ value, onChange }: LayoutSelectorProps) => {
           >
             <RadioGroupItem value={layout.id} id={layout.id} className="sr-only" />
             <div
-              className={`w-10 h-12 ${
+              className={`w-8 h-10 sm:w-10 sm:h-12 ${
                 value === layout.id ? "text-primary" : "text-muted-foreground"
               }`}
             >
               {layout.icon}
             </div>
             <div className="text-center">
-              <p className="text-sm font-medium text-foreground">{layout.name}</p>
-              <p className="text-xs text-muted-foreground">{layout.description}</p>
+              <p className="text-xs sm:text-sm font-medium text-foreground">{layout.name}</p>
+              <p className="text-xs text-muted-foreground hidden sm:block">{layout.description}</p>
             </div>
           </Label>
         ))}

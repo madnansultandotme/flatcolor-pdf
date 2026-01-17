@@ -24,12 +24,12 @@ const HeaderFooterEditor = ({ config, onChange }: HeaderFooterEditorProps) => {
 
   return (
     <Card>
-      <CardHeader className="pb-4">
-        <CardTitle className="text-lg">Header & Footer</CardTitle>
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="text-base sm:text-lg">Header & Footer</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="space-y-2">
-          <Label htmlFor="header-text" className="text-sm font-medium">
+      <CardContent className="space-y-3 sm:space-y-4">
+        <div className="space-y-1.5 sm:space-y-2">
+          <Label htmlFor="header-text" className="text-xs sm:text-sm font-medium">
             Header Text
           </Label>
           <Input
@@ -38,7 +38,7 @@ const HeaderFooterEditor = ({ config, onChange }: HeaderFooterEditorProps) => {
             placeholder="e.g., Company Name or Document Title"
             value={config.headerText}
             onChange={(e) => handleHeaderChange(e.target.value)}
-            className="text-sm"
+            className="text-xs sm:text-sm"
             maxLength={50}
           />
           <p className="text-xs text-muted-foreground">
@@ -46,8 +46,8 @@ const HeaderFooterEditor = ({ config, onChange }: HeaderFooterEditorProps) => {
           </p>
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="footer-text" className="text-sm font-medium">
+        <div className="space-y-1.5 sm:space-y-2">
+          <Label htmlFor="footer-text" className="text-xs sm:text-sm font-medium">
             Footer Text
           </Label>
           <Input
@@ -56,7 +56,7 @@ const HeaderFooterEditor = ({ config, onChange }: HeaderFooterEditorProps) => {
             placeholder="e.g., Copyright notice or document info"
             value={config.footerText}
             onChange={(e) => handleFooterChange(e.target.value)}
-            className="text-sm"
+            className="text-xs sm:text-sm"
             maxLength={50}
           />
           <p className="text-xs text-muted-foreground">

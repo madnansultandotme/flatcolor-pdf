@@ -28,32 +28,32 @@ interface ColorPresetsProps {
 const ColorPresets = ({ primaryColor, onApplyPreset }: ColorPresetsProps) => {
   return (
     <Card>
-      <CardHeader className="pb-4">
-        <CardTitle className="text-lg">Color Presets</CardTitle>
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="text-base sm:text-lg">Color Presets</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="grid grid-cols-2 gap-3">
+      <CardContent className="space-y-3 sm:space-y-4">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3">
           {COLOR_PRESETS.map((preset) => (
             <Button
               key={preset.name}
               variant={primaryColor === preset.primary ? "default" : "outline"}
-              className="h-auto flex flex-col items-center justify-center p-3 gap-2"
+              className="h-auto flex flex-col items-center justify-center p-2 sm:p-3 gap-1.5 sm:gap-2"
               onClick={() => onApplyPreset(preset)}
             >
-              <div className="flex gap-1.5 items-center">
+              <div className="flex gap-1 sm:gap-1.5 items-center">
                 <div
-                  className="w-4 h-4 rounded border border-current"
+                  className="w-3 h-3 sm:w-4 sm:h-4 rounded border border-current"
                   style={{ backgroundColor: preset.primary }}
                 />
                 <div
-                  className="w-4 h-4 rounded border border-current"
+                  className="w-3 h-3 sm:w-4 sm:h-4 rounded border border-current"
                   style={{ backgroundColor: preset.secondary }}
                 />
               </div>
               <div className="text-xs font-medium flex items-center gap-1">
                 {preset.name}
                 {primaryColor === preset.primary && (
-                  <Check className="w-3 h-3" />
+                  <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                 )}
               </div>
             </Button>

@@ -124,15 +124,15 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <FileImage className="w-5 h-5 text-primary-foreground" />
+      <header className="border-b border-border bg-card sticky top-0 z-50 backdrop-blur-sm bg-card/95">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary flex items-center justify-center flex-shrink-0">
+              <FileImage className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
             </div>
-            <div>
-              <h1 className="text-xl font-semibold text-foreground">Image to PDF</h1>
-              <p className="text-sm text-muted-foreground">
+            <div className="min-w-0">
+              <h1 className="text-lg sm:text-xl font-semibold text-foreground truncate">Image to PDF</h1>
+              <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">
                 Clean, two-color PDFs with no gradients
               </p>
             </div>
@@ -141,22 +141,22 @@ const Index = () => {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {/* Left Column - Upload & Images */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             <ImageUploader onImagesAdded={handleImagesAdded} />
 
             {images.length > 0 && (
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-center justify-between">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={handleClearAll}
-                    className="text-destructive hover:text-destructive"
+                    className="text-destructive hover:text-destructive text-xs sm:text-sm"
                   >
-                    <Trash2 className="w-4 h-4 mr-2" />
+                    <Trash2 className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                     Clear All
                   </Button>
                 </div>
@@ -170,9 +170,9 @@ const Index = () => {
 
             {/* Color Rule Notice */}
             <Card className="border-primary/20 bg-primary/5">
-              <CardContent className="p-4 flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <div className="text-sm">
+              <CardContent className="p-3 sm:p-4 flex items-start gap-2 sm:gap-3">
+                <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div className="text-xs sm:text-sm">
                   <p className="font-medium text-foreground">Two-Color Only</p>
                   <p className="text-muted-foreground mt-1">
                     This tool enforces a strict two-color scheme. No gradients, shadows, or
@@ -185,14 +185,14 @@ const Index = () => {
           </div>
 
           {/* Right Column - Settings & Preview */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             <Card>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">PDF Settings</CardTitle>
+              <CardHeader className="pb-3 sm:pb-4">
+                <CardTitle className="text-base sm:text-lg">PDF Settings</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 sm:space-y-6">
                 {/* Colors */}
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <ColorPicker
                     label="Primary Color"
                     color={primaryColor}
@@ -207,17 +207,17 @@ const Index = () => {
                   />
                 </div>
 
-                <div className="border-t border-border pt-4">
+                <div className="border-t border-border pt-3 sm:pt-4">
                   <LayoutSelector value={layout} onChange={setLayout} />
                 </div>
 
-                <div className="border-t border-border pt-4">
+                <div className="border-t border-border pt-3 sm:pt-4">
                   <PageSizeSelector value={pageSize} onChange={setPageSize} />
                 </div>
 
-                <div className="border-t border-border pt-4">
+                <div className="border-t border-border pt-3 sm:pt-4">
                   <div className="flex items-center justify-between">
-                    <Label htmlFor="show-captions" className="text-sm font-medium">
+                    <Label htmlFor="show-captions" className="text-xs sm:text-sm font-medium">
                       Show Captions
                     </Label>
                     <Switch
@@ -251,10 +251,10 @@ const Index = () => {
               onChange={setHeaderFooterConfig}
             />
 
-            {/* Preview */}
-            <Card>
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg">Preview</CardTitle>
+            {/* Preview - Hidden on mobile */}
+            <Card className="hidden md:block">
+              <CardHeader className="pb-3 sm:pb-4">
+                <CardTitle className="text-base sm:text-lg">Preview</CardTitle>
               </CardHeader>
               <CardContent>
                 <PDFPreview
@@ -269,24 +269,28 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            {/* Generate Button */}
-            <Button
-              size="lg"
-              className="w-full"
-              onClick={handleGeneratePDF}
-              disabled={images.length === 0 || isGenerating}
-            >
-              <Download className="w-5 h-5 mr-2" />
-              {isGenerating ? "Generating..." : "Generate PDF"}
-            </Button>
+            {/* Generate Button - Fixed on mobile */}
+            <div className="md:relative fixed bottom-0 left-0 right-0 p-4 bg-background border-t border-border md:border-0 md:p-0 z-40">
+              <Button
+                size="lg"
+                className="w-full text-sm sm:text-base"
+                onClick={handleGeneratePDF}
+                disabled={images.length === 0 || isGenerating}
+              >
+                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+                {isGenerating ? "Generating..." : "Generate PDF"}
+              </Button>
+            </div>
           </div>
         </div>
+        {/* Bottom padding for fixed button on mobile */}
+        <div className="h-20 md:hidden" />
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border mt-12">
-        <div className="container mx-auto px-4 py-6">
-          <p className="text-center text-sm text-muted-foreground">
+      <footer className="border-t border-border mt-8 sm:mt-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <p className="text-center text-xs sm:text-sm text-muted-foreground">
             Flat colors only • No gradients • Print-ready output
           </p>
         </div>

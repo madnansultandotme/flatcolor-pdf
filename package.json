@@ -1,7 +1,24 @@
 {
-  "name": "vite_react_shadcn_ts",
-  "private": true,
-  "version": "0.0.0",
+  "name": "flatcolor-pdf",
+  "private": false,
+  "version": "1.0.0",
+  "description": "Convert images to clean, two-color PDFs with no gradients. Perfect for print-ready, brand-consistent documents.",
+  "author": "Flatcolor PDF",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dev-adnansultan/flatcolor-pdf.git"
+  },
+  "keywords": [
+    "pdf",
+    "image-to-pdf",
+    "pdf-generator",
+    "flat-colors",
+    "react",
+    "typescript",
+    "vite",
+    "tailwindcss"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",

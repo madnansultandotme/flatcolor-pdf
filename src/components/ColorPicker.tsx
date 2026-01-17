@@ -10,14 +10,14 @@ interface ColorPickerProps {
 
 const ColorPicker = ({ label, color, onChange, description }: ColorPickerProps) => {
   return (
-    <div className="space-y-2">
-      <Label className="text-sm font-medium text-foreground">{label}</Label>
+    <div className="space-y-1.5 sm:space-y-2">
+      <Label className="text-xs sm:text-sm font-medium text-foreground">{label}</Label>
       {description && (
         <p className="text-xs text-muted-foreground">{description}</p>
       )}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         <div
-          className="w-12 h-12 rounded-lg border-2 border-border overflow-hidden shadow-sm cursor-pointer relative"
+          className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-border overflow-hidden shadow-sm cursor-pointer relative flex-shrink-0"
           style={{ backgroundColor: color }}
         >
           <input
@@ -36,7 +36,7 @@ const ColorPicker = ({ label, color, onChange, description }: ColorPickerProps) 
               onChange(value);
             }
           }}
-          className="font-mono text-sm uppercase w-28"
+          className="font-mono text-xs sm:text-sm uppercase w-24 sm:w-28"
           placeholder="#000000"
         />
       </div>

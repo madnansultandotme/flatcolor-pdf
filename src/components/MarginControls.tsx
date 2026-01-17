@@ -21,14 +21,14 @@ const MarginControls = ({ margins, onChange }: MarginControlsProps) => {
 
   return (
     <Card>
-      <CardHeader className="pb-4">
-        <CardTitle className="text-lg">Page Margins</CardTitle>
+      <CardHeader className="pb-3 sm:pb-4">
+        <CardTitle className="text-base sm:text-lg">Page Margins</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="space-y-3">
+      <CardContent className="space-y-4 sm:space-y-6">
+        <div className="space-y-2.5 sm:space-y-3">
           <div>
-            <div className="flex justify-between items-center mb-2">
-              <Label className="text-sm font-medium">Top</Label>
+            <div className="flex justify-between items-center mb-1.5 sm:mb-2">
+              <Label className="text-xs sm:text-sm font-medium">Top</Label>
               <span className="text-xs text-muted-foreground">{margins.top}mm</span>
             </div>
             <Slider
@@ -42,8 +42,8 @@ const MarginControls = ({ margins, onChange }: MarginControlsProps) => {
           </div>
 
           <div>
-            <div className="flex justify-between items-center mb-2">
-              <Label className="text-sm font-medium">Right</Label>
+            <div className="flex justify-between items-center mb-1.5 sm:mb-2">
+              <Label className="text-xs sm:text-sm font-medium">Right</Label>
               <span className="text-xs text-muted-foreground">{margins.right}mm</span>
             </div>
             <Slider
@@ -57,8 +57,8 @@ const MarginControls = ({ margins, onChange }: MarginControlsProps) => {
           </div>
 
           <div>
-            <div className="flex justify-between items-center mb-2">
-              <Label className="text-sm font-medium">Bottom</Label>
+            <div className="flex justify-between items-center mb-1.5 sm:mb-2">
+              <Label className="text-xs sm:text-sm font-medium">Bottom</Label>
               <span className="text-xs text-muted-foreground">{margins.bottom}mm</span>
             </div>
             <Slider
@@ -72,8 +72,8 @@ const MarginControls = ({ margins, onChange }: MarginControlsProps) => {
           </div>
 
           <div>
-            <div className="flex justify-between items-center mb-2">
-              <Label className="text-sm font-medium">Left</Label>
+            <div className="flex justify-between items-center mb-1.5 sm:mb-2">
+              <Label className="text-xs sm:text-sm font-medium">Left</Label>
               <span className="text-xs text-muted-foreground">{margins.left}mm</span>
             </div>
             <Slider

@@ -33,7 +33,7 @@ const ImageUploader = ({ onImagesAdded }: ImageUploaderProps) => {
     <div
       {...getRootProps()}
       className={`
-        relative border-2 border-dashed rounded-lg p-12 text-center cursor-pointer
+        relative border-2 border-dashed rounded-lg p-6 sm:p-8 md:p-12 text-center cursor-pointer
         transition-all duration-300 ease-out
         ${
           isDragActive
@@ -43,24 +43,24 @@ const ImageUploader = ({ onImagesAdded }: ImageUploaderProps) => {
       `}
     >
       <input {...getInputProps()} />
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-3 sm:gap-4">
         <div
           className={`
-            w-16 h-16 rounded-full flex items-center justify-center transition-colors
+            w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-colors
             ${isDragActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}
           `}
         >
           {isDragActive ? (
-            <ImageIcon className="w-8 h-8" />
+            <ImageIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
           ) : (
-            <Upload className="w-8 h-8" />
+            <Upload className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" />
           )}
         </div>
         <div>
-          <p className="text-lg font-medium text-foreground">
+          <p className="text-base sm:text-lg font-medium text-foreground">
             {isDragActive ? "Drop your images here" : "Drag & drop images here"}
           </p>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
             or click to browse • JPG, PNG, WEBP
           </p>
         </div>

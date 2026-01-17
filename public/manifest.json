@@ -1,0 +1,17 @@
+{
+  "name": "Flatcolor PDF - Image to PDF Converter",
+  "short_name": "Flatcolor PDF",
+  "description": "Convert images to clean, two-color PDFs with no gradients",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0284C7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}

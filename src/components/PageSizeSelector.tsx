@@ -21,15 +21,15 @@ const pageSizes = [
 
 const PageSizeSelector = ({ value, onChange }: PageSizeSelectorProps) => {
   return (
-    <div className="space-y-2">
-      <Label className="text-sm font-medium text-foreground">Page Size</Label>
+    <div className="space-y-1.5 sm:space-y-2">
+      <Label className="text-xs sm:text-sm font-medium text-foreground">Page Size</Label>
       <Select value={value} onValueChange={(v) => onChange(v as PageSize)}>
-        <SelectTrigger className="w-full">
+        <SelectTrigger className="w-full text-xs sm:text-sm">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
           {pageSizes.map((size) => (
-            <SelectItem key={size.id} value={size.id}>
+            <SelectItem key={size.id} value={size.id} className="text-xs sm:text-sm">
               <span className="font-medium">{size.name}</span>
               <span className="text-muted-foreground ml-2">({size.dimensions})</span>
             </SelectItem>
